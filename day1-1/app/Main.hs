@@ -5,4 +5,4 @@ import Lib
 main :: IO ()
 main = do 
         input <- readFile "input.txt" 
-        print $ solution input
+        writeFile "output.txt" $ show $ solution input
