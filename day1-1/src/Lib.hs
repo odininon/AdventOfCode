@@ -2,11 +2,12 @@ module Lib
     ( parseLine
     , parseInput
     , solution
+    , firstRepeat
     )
 where
 
 parseLine :: String -> Integer
-parseLine (x:xs) = case x of
+parseLine (x : xs) = case x of
     '+' -> digit
     '-' -> -digit
     where digit = read xs :: Integer
@@ -14,5 +15,16 @@ parseLine (x:xs) = case x of
 parseInput :: String -> [Integer]
 parseInput = map parseLine . lines
 
-solution :: String -> Integer
-solution = sum . parseInput
+firstRepeat' :: [Integer] -> [Integer] -> [Integer] -> Integer
+firstRepeat' a  []       c  = firstRepeat' a c c
+firstRepeat' as (b : bs) cs = if newTotal `elem` as
+    then newTotal
+    else firstRepeat' (newTotal : as) bs cs
+    where newTotal = head as + b
+
+firstRepeat :: [Integer] -> Integer
+firstRepeat a = firstRepeat' [0] a a
+
+solution :: String -> (Integer, Integer)
+solution s = (firstRepeat parsedInput, sum parsedInput)
+    where parsedInput = parseInput s
