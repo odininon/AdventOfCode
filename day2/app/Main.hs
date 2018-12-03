@@ -5,4 +5,6 @@ import Lib
 main :: IO ()
 main = do
     string <- readFile "input.txt" 
-    writeFile "output.txt" $ show . calculateCheckSum $ lines string
+    let answer = show . calculateCheckSum $ lines string
+    writeFile "output.txt" answer
+    putStrLn answer

@@ -1,5 +1,4 @@
 import           Test.Hspec
-
 import           Lib
 
 main :: IO ()
@@ -16,4 +15,13 @@ main = hspec $ do
             containsThreeRepeats "abcdef" `shouldBe` False
     describe "calculateCheckSum" $ do
         it "should return 12 for a list of ids" $ do
-            calculateCheckSum ["abcdef", "bababc", "abbcde", "abcccd", "aabcdd", "abcdee", "ababab"] `shouldBe` 12
+            calculateCheckSum
+                    [ "abcdef"
+                    , "bababc"
+                    , "abbcde"
+                    , "abcccd"
+                    , "aabcdd"
+                    , "abcdee"
+                    , "ababab"
+                    ]
+                `shouldBe` 12
