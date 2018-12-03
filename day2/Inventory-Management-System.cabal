@@ -1,0 +1,63 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 4d4997f7cea7bf3a2b4b146c7c8691056b0e7ea897fe984bcd3700b0cb946210
+
+name:           Inventory-Management-System
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/day2#readme>
+homepage:       https://github.com/odininon/adventofcode#readme
+bug-reports:    https://github.com/odininon/adventofcode/issues
+author:         Freyadono
+maintainer:     freyadono@aesireanempire.net
+copyright:      2018 Freyadono
+license:        MiT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/odininon/adventofcode
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_Inventory_Management_System
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable day2-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Inventory_Management_System
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Inventory-Management-System
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite day2-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_Inventory_Management_System
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Inventory-Management-System
+    , base >=4.7 && <5
+    , hspec
+  default-language: Haskell2010
